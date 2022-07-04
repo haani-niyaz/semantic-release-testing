@@ -1,8 +1,12 @@
 name: goreleaser
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - 'master'
+    tags:
+      - 'v*'
+  pull_request:
 
 defaults:
   run:
