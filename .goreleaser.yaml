@@ -1,4 +1,3 @@
-project_name: semtesting
 # test
 builds:
   # You can have multiple builds defined as a yaml list
