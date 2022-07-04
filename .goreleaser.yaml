@@ -1,10 +1,10 @@
-project_name: semtest
+project_name: semtesting
 builds:
   # You can have multiple builds defined as a yaml list
   -
     # ID of the build.
     # Defaults to the binary name.
-    id: "my-build"
+    id: "semtesting"
 
     # Path to main.go file or main package.
     # Notice: when used with `gomod.proxy`, this must be a package.
