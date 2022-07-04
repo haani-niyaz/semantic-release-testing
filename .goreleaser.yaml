@@ -4,7 +4,7 @@ builds:
   -
     # ID of the build.
     # Defaults to the binary name.
-    id: "semtesting"
+    id: "semantic-release-testing"
 
     # Path to main.go file or main package.
     # Notice: when used with `gomod.proxy`, this must be a package.
