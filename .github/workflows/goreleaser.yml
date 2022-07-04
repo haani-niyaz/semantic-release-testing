@@ -1,8 +1,12 @@
 name: goreleaser
+
 on:
-  push:
-    tags:
-      - 'v*'
+  release:
+    types: [published]
+
+defaults:
+  run:
+    working-directory: cmd
 
 jobs:
   goreleaser:
