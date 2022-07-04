@@ -18,7 +18,6 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          npm install @semantic-release/gitlab @semantic-release/changelog @semantic-release/exec
-          npx semantic-release --dry-run --no-ci
-          cat .version
+        run: npm install @semantic-release/gitlab @semantic-release/changelog @semantic-release/exec; npx semantic-release --dry-run --no-ciif [-e .version]; then cat .version; fi
+          
+      
