@@ -8,10 +8,6 @@ on:
       - 'v*'
   pull_request:
 
-defaults:
-  run:
-    working-directory: cmd
-
 jobs:
   goreleaser:
     runs-on: ubuntu-latest
