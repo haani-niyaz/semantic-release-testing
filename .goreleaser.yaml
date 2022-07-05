@@ -1,21 +1,32 @@
-# test
+# This is an example .goreleaser.yml file with some sensible defaults.
+# Make sure to check the documentation at https://goreleaser.com
+# project_name: golang-template-repository
 builds:
-  # You can have multiple builds defined as a yaml list
-  -
-    # ID of the build.
-    # Defaults to the binary name.
-    #id: "semantic-release-testing"
-
-    # Path to main.go file or main package.
-    # Notice: when used with `gomod.proxy`, this must be a package.
-    #
-    # Default is `.`.
-    main: ./cmd
-    env: [CGO_ENABLED=0]
+  - env: [CGO_ENABLED=0]
     goos:
       - linux
       - windows
       - darwin
     goarch:
       - amd64
-      - arm64 
+      - arm64
+    dir: .
+    main: ./cmd
+    binary: ./cmd/build/bin
+archives:
+  - replacements:
+      darwin: Darwin
+      linux: Linux
+      windows: Windows
+      386: i386
+      amd64: x86_64
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ incpatch .Version }}-next"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
