@@ -12,7 +12,7 @@ builds:
       - arm64
     dir: .
     main: ./cmd
-    binary: ./cmd/build/bin
+    binary: ./bin
 archives:
   - replacements:
       darwin: Darwin
