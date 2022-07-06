@@ -1,6 +1,15 @@
 # This is an example .goreleaser.yml file with some sensible defaults.
 # Make sure to check the documentation at https://goreleaser.com
+
+# The project name is used in the name of the Brew formula, archives, etc. If none is given, it will be inferred
+# from the name of the GitHub, GitLab, or Gitea release.
 # project_name: golang-template-repository
+before:
+  hooks:
+    # You may remove this if you don't use go modules.
+    - go mod tidy
+    # you may remove this if you don't need go generate
+    - go generate ./...
 builds:
   - env: [CGO_ENABLED=0]
     goos:
@@ -10,9 +19,15 @@ builds:
     goarch:
       - amd64
       - arm64
+    # ID of the build.
+    # Defaults to the binary name, uncomment line below if needed
+    # id: "golang-template-repository"
     dir: .
     main: ./cmd
-    binary: ./bin
+    # uncomment this line to build binary at specific location# Binary name.
+    # Can be a path (e.g. `bin/app`) to wrap the binary in a directory.
+    # Default is the name of the project directory.
+    # binary: ./bin/app
 archives:
   - replacements:
       darwin: Darwin
